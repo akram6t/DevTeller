@@ -2,11 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const CodeEditor = ({ code, 
-  // language, 
+
   onChange }) => {
-  // In a real implementation, we would use a code editor library like Monaco Editor or CodeMirror
-  // For simplicity, we're using a textarea with some styling to mimic a code editor
-  
+
   const handleCodeChange = (e) => {
     onChange(e.target.value);
   };
