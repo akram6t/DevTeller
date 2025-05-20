@@ -10,6 +10,9 @@ export async function getExplanationsByCode(code) {
                 }
             });
 
+            console.log(response.data);
+            
+
             return { data: response.data?.data }
     }catch(error){
         console.log(error);

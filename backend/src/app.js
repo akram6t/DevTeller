@@ -27,8 +27,9 @@ app.post('/api/code-explain', async (req, res) => {
             throw new Error("please provide Code");
         }
 
-        const data = await explainByAi(code);
-        res.json({ data });
+        const data = await explainByAi(code);        
+
+        return res.json({ data });
 
     }catch(error){
         return res.json({ error: "Unable to explain the code!", message: error.message.toString() }, 400);

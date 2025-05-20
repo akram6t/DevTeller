@@ -105,21 +105,15 @@ const CodeExplainPage = () => {
     setIsProcessing(true);
 
     const { data, error } = await getExplanationsByCode(code);
-    if(!error){
-      // console.log(data);
-      
-      setExplanations(data);
-    }
     
     setIsProcessing(false);
 
+    if(error){
+      return setExplanations([{ line: 1, code: 'X: Unable to Explain the code Please try with different code.', explanation: 'X: Unable to Explain the code Please try with different code.', detailedText: '' }]);
+    }
     
-    // Simulate API call delay
-    // setTimeout(() => {
-      // For now, just use our dummy data
-      // setExplanations(dummyExplanations);
-      // setIsProcessing(false);
-    // }, 2000);
+    setExplanations(data);
+    
   };
 
   const handleLineClick = (lineNumber) => {
