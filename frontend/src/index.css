@@ -6,50 +6,23 @@
 body {
   @apply dark:text-neutral-100 dark:bg-neutral-900;
 }
-/* Scrollbar width */
-/* SCROLLBAR BASE */
 ::-webkit-scrollbar {
-  width: 14px;
-  height: 14px;
-  background: transparent;
+    width: 10px;
+    background-color: rgba(26,30,36,0.8);
+    background-image: radial-gradient(circle, rgba(0,200,255,0.05) 1px, transparent 1px);
+    background-size: 8px 8px;
 }
 
-/* TRACK */
-::-webkit-scrollbar-track {
-  background: #0c0c0f;
-  border-radius: 100px;
-  box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.05);
-}
-
-/* THUMB */
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(120deg, #00ffe0, #8a00ff, #ff00cc);
-  background-size: 400% 400%;
-  animation: neonFlow 4s ease infinite;
-  border-radius: 100px;
-  box-shadow:
-    0 0 5px #00ffe0,
-    0 0 10px #8a00ff,
-    0 0 20px #ff00cc,
-    0 0 40px rgba(255, 0, 204, 0.5);
-  border: 2px solid rgba(0, 0, 0, 0.4);
+    background: linear-gradient(180deg, rgba(0,228,255,0.7) 0%, rgba(0,114,255,0.7) 100%);
+    border-radius: 5px;
+    border: 1px solid rgba(0,242,255,0.9);
+    box-shadow: 0 0 6px rgba(0,242,255,0.5);
 }
 
-/* THUMB ON HOVER */
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(120deg, #ff00cc, #00ffe0, #8a00ff);
-  background-size: 400% 400%;
-  animation: neonFlowHover 2s ease-in-out infinite;
-  box-shadow:
-    0 0 8px #ff00cc,
-    0 0 16px #00ffe0,
-    0 0 32px #8a00ff;
-}
-
-/* FIREFOX SUPPORT */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: #ff00cc #0c0c0f;
+    background: linear-gradient(180deg, rgba(0,228,255,0.9) 0%, rgba(0,114,255,0.9) 100%);
+    box-shadow: 0 0 10px rgba(0,242,255,0.8);
 }
 
 /* ANIMATIONS */
