@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { IconCode, IconFileText, IconBulb, IconArrowRight } from '@tabler/icons-react';
+import { Code, FileText, Lightbulb, ArrowRight } from 'lucide-react';
 
 const CodeExplanation = ({ explanations, onLineClick, selectedLine, detailedExplanation }) => {
   const [hoveredLine, setHoveredLine] = useState(null);
@@ -38,7 +38,7 @@ const CodeExplanation = ({ explanations, onLineClick, selectedLine, detailedExpl
     <div className="h-full flex flex-col">
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-2">
-          <IconFileText className="text-glow-purple" />
+          <FileText className="text-glow-purple" />
           <h2 className="text-xl font-semibold">Code Explanation</h2>
         </div>
         
@@ -52,7 +52,7 @@ const CodeExplanation = ({ explanations, onLineClick, selectedLine, detailedExpl
       {explanations.length === 0 ? (
         <div className="flex flex-col items-center justify-center h-full text-center p-10">
           <div className="w-16 h-16 bg-gray-800 bg-opacity-50 rounded-full flex items-center justify-center mb-4">
-            <IconCode size={28} className="text-gray-400" />
+            <Code size={28} className="text-gray-400" />
           </div>
           <h3 className="text-lg font-medium text-gray-300 mb-2">No Code Analyzed Yet</h3>
           <p className="text-gray-400 max-w-md">
@@ -144,7 +144,7 @@ const CodeExplanation = ({ explanations, onLineClick, selectedLine, detailedExpl
                   <div className="bg-gray-800 bg-opacity-40 rounded-xl p-4 border border-gray-700 h-full">
                     <div className="flex items-center gap-2 mb-4">
                       <div className="w-8 h-8 rounded-full bg-glow-blue bg-opacity-20 flex items-center justify-center">
-                        <IconBulb size={18} className="text-glow-blue" />
+                        <Lightbulb size={18} className="text-glow-blue" />
                       </div>
                       <div className="font-semibold text-glow-blue">Line {selectedLine} Detailed Analysis</div>
                     </div>
@@ -155,7 +155,7 @@ const CodeExplanation = ({ explanations, onLineClick, selectedLine, detailedExpl
                     
                     <div className="prose prose-invert prose-sm max-w-none">
                       <div className="flex items-start gap-2 mb-3">
-                        <IconArrowRight size={18} className="text-glow-purple mt-1 flex-shrink-0" />
+                        <ArrowRight size={18} className="text-glow-purple mt-1 flex-shrink-0" />
                         <div className="text-gray-200">
                           {explanations.find(e => e.line === selectedLine)?.explanation || ''}
                         </div>
@@ -187,7 +187,7 @@ const CodeExplanation = ({ explanations, onLineClick, selectedLine, detailedExpl
                         ease: "easeInOut"
                       }}
                     >
-                      <IconBulb size={32} className="text-gray-500" />
+                      <Lightbulb size={32} className="text-gray-500" />
                     </motion.div>
                   </div>
                   <h4 className="text-lg font-medium text-gray-400 mb-2">Select a line of code</h4>

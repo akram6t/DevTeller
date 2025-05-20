@@ -1,38 +1,40 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  IconCode, 
-  IconCloudUpload, 
-  IconFileText,
-  IconArrowRight,
-  IconBrain
-} from '@tabler/icons-react';
+// import { 
+//   IconCode, 
+//   IconCloudUpload, 
+//   IconFileText,
+//   IconArrowRight,
+//   IconBrain
+// } from '@tabler/icons-react';
+
+import { Code, CloudUpload, FileText, ArrowRight, Brain,  } from 'lucide-react';
 
 const HowItWorks = () => {
   const steps = [
     {
-      icon: <IconCode className="h-10 w-10" />,
+      icon: <Code className="h-10 w-10" />,
       title: 'Paste Your Code',
       description: 'Start by pasting any code snippet or entire file into our editor.',
       color: 'text-glow-purple',
       bgColor: 'bg-glow-purple'
     },
     {
-      icon: <IconCloudUpload className="h-10 w-10" />,
+      icon: <CloudUpload className="h-10 w-10" />,
       title: 'Submit for Analysis',
       description: 'Click the analyze button to send your code to our AI system.',
       color: 'text-glow-blue',
       bgColor: 'bg-glow-blue'
     },
     {
-      icon: <IconBrain className="h-10 w-10" />,
+      icon: <Brain className="h-10 w-10" />,
       title: 'AI Processing',
       description: 'Our advanced AI analyzes each line of code to understand its purpose.',
       color: 'text-glow-cyan',
       bgColor: 'bg-glow-cyan'
     },
     {
-      icon: <IconFileText className="h-10 w-10" />,
+      icon: <FileText className="h-10 w-10" />,
       title: 'Get Explanation',
       description: 'Receive detailed line-by-line explanations of your code in seconds.',
       color: 'text-glow-green',
@@ -86,7 +88,7 @@ const HowItWorks = () => {
                 <p className="text-gray-400">{step.description}</p>
                 
                 {index < steps.length - 1 && (
-                  <IconArrowRight className="w-6 h-6 text-gray-600 mt-4 hidden md:block transform rotate-90 md:rotate-0" />
+                  <ArrowRight className="w-6 h-6 text-gray-600 mt-4 hidden md:block transform rotate-90 md:rotate-0" />
                 )}
               </motion.div>
             ))}

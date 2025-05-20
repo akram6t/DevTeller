@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router';
-import { IconArrowRight, IconTerminal2 } from '@tabler/icons-react';
+
+import { ArrowRight, Terminal } from 'lucide-react'
 
 const Hero = () => {
   return (
@@ -73,7 +74,7 @@ function analyzeCodeLine(line) {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  Try It Now <IconArrowRight className="ml-2 h-5 w-5" />
+                  Try It Now <ArrowRight className="ml-2 h-5 w-5" />
                 </motion.button>
               </Link>
 
@@ -108,7 +109,7 @@ function analyzeCodeLine(line) {
                     <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                     <div className="w-3 h-3 rounded-full bg-green-500"></div>
                   </div>
-                  <IconTerminal2 className="h-5 w-5 text-gray-400" />
+                  <Terminal className="h-5 w-5 text-gray-400" />
                 </div>
 
                 <div className="text-sm text-gray-300 font-mono">

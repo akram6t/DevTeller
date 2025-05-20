@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router'; // Changed from 'react-router'
+import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
+import { Code, Menu, X, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { IconCode, IconMenu2, IconX } from '@tabler/icons-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const menuRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,6 +14,19 @@ const Navbar = () => {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
   }, []);
 
   const scrollTo = (id) => {
@@ -31,7 +45,6 @@ const Navbar = () => {
   };
 
   const handleHomeClick = () => {
-    // Only scroll to top if we're already on home page
     if (window.location.pathname === '/') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -42,51 +55,107 @@ const Navbar = () => {
     { name: 'Home', path: '/', onClick: handleHomeClick },
     { name: 'Features', onClick: () => scrollTo('features') },
     { name: 'How It Works', onClick: () => scrollTo('how-it-works') },
-    { name: 'Try It', path: '/code-explain' },
+    { name: 'Team', onClick: () => scrollTo('team') },
   ];
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${
-      scrolled ? 'bg-black bg-opacity-80 shadow-lg backdrop-blur-md py-2' : 'bg-transparent py-5'
+      scrolled ? 'bg-gray-900 bg-opacity-90 shadow-lg backdrop-blur-md py-2' : 'bg-transparent py-4'
     }`}>
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          <div className="flex items-center space-x-2">
-            <IconCode className="text-glow-purple w-8 h-8" stroke={2} />
-            <span className="text-xl font-bold bg-gradient-to-r from-glow-purple to-glow-blue text-transparent bg-clip-text">
-              CodeExplainer
-            </span>
-          </div>
+        {/* Brand Logo */}
+        <Link 
+          to="/" 
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="flex items-center space-x-2 z-50"
+        >
+          <Code className="text-glow-purple w-8 h-8" stroke={2} />
+          <span className="text-xl font-bold bg-gradient-to-r from-glow-purple to-glow-blue text-transparent bg-clip-text">
+            CodeExplainer
+          </span>
         </Link>
 
-        <div className="hidden md:flex space-x-8 items-center">
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center space-x-6">
           {navLinks.map((link, index) => (
-            <div key={index}>
-              {link.path ? (
-                <Link to={link.path} onClick={link.onClick}>
-                  {link.name === 'Try It' ? (
-                    <button className="px-5 py-2 rounded-full bg-gradient-to-r from-glow-purple to-glow-blue hover:from-glow-blue hover:to-glow-purple text-white font-medium">
-                      {link.name}
-                    </button>
-                  ) : (
-                    <button className="text-gray-300 hover:text-white transition-colors">
-                      {link.name}
-                    </button>
-                  )}
-                </Link>
-              ) : (
+            <button
+              key={index}
+              onClick={link.onClick}
+              className="text-gray-300 hover:text-white transition-colors px-3 py-2"
+            >
+              {link.name}
+            </button>
+          ))}
+          
+          <Link to="/code-explain">
+            <motion.button
+              className="px-5 py-2 rounded-full bg-gradient-to-r from-glow-purple to-glow-blue hover:from-glow-blue hover:to-glow-purple text-white font-medium flex items-center"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Try Now <ArrowRight className="ml-2 h-4 w-4" />
+            </motion.button>
+          </Link>
+        </div>
+
+        {/* Mobile Navigation */}
+        <div className="flex md:hidden items-center space-x-4">
+          <Link to="/code-explain" className="mr-2">
+            <motion.button
+              className="px-4 py-2 rounded-full bg-gradient-to-r from-glow-purple to-glow-blue text-white text-sm font-medium flex items-center"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Try Now
+            </motion.button>
+          </Link>
+          
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-gray-300 hover:text-white focus:outline-none z-50"
+            aria-label="Toggle menu"
+          >
+            {isOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        {isOpen && (
+          <motion.div 
+            ref={menuRef}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 top-16 bg-gray-900 bg-opacity-95 backdrop-blur-lg md:hidden z-40 pt-8 px-6"
+          >
+            <div className="flex flex-col space-y-6">
+              {navLinks.map((link, index) => (
                 <button
-                  onClick={link.onClick}
-                  className="text-gray-300 hover:text-white transition-colors"
+                  key={index}
+                  onClick={link.path ? () => { link.onClick(); if (link.path) setIsOpen(false); } : link.onClick}
+                  className="text-2xl text-gray-300 hover:text-white py-3 border-b border-gray-800 text-left"
                 >
                   {link.name}
                 </button>
-              )}
+              ))}
+              
+              <Link to="/code-explain" onClick={() => setIsOpen(false)}>
+                <motion.button
+                  className="w-full mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-glow-purple to-glow-blue text-white font-medium flex items-center justify-center"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  Try Now <ArrowRight className="ml-2 h-5 w-5" />
+                </motion.button>
+              </Link>
             </div>
-          ))}
-        </div>
-
-        {/* ... rest of your navbar code remains the same ... */}
+          </motion.div>
+        )}
       </div>
     </nav>
   );

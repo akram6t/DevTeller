@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { lazy, useState } from 'react';
 import { motion } from 'framer-motion';
 import CodeEditor from '../components/CodeEditor';
 import CodeExplanation from '../components/CodeExplanation';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import GlowingBackground from '../components/GlowingBackground';
 import LoadingOverlay from '../components/LoadingOverlay';
-import { IconBrain, IconCode, IconLanguage } from '@tabler/icons-react';
+// import { IconBrain, IconCode, IconLanguage } from '@tabler/icons-react';
+import { Brain, Code, Languages } from 'lucide-react';
 import { getExplanationsByCode } from '../utils/api';
+
+const GlowingBackground = lazy(() => import('../components/GlowingBackground'));
 
 // // Dummy data for code explanations
 // const dummyExplanations = [
@@ -177,7 +179,7 @@ const CodeExplainPage = () => {
             <div className="bg-gray-800 bg-opacity-50 backdrop-blur-sm border border-gray-700 rounded-xl p-6 flex flex-col h-full">
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2">
-                  <IconCode className="text-glow-purple" />
+                  <Code className="text-glow-purple" />
                   <h2 className="text-xl font-semibold">Your Code</h2>
                 </div>
                 
@@ -212,7 +214,7 @@ const CodeExplainPage = () => {
                 onClick={handleExplainCode}
                 disabled={isProcessing}
               >
-                <IconBrain size={20} />
+                <Brain size={20} />
                 <span>{isProcessing ? 'Processing...' : 'Explain Code'}</span>
               </motion.button>
             </div>

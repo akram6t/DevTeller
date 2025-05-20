@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { IconBrain } from '@tabler/icons-react';
+import { Brain } from 'lucide-react';
 
 const LoadingOverlay = () => {
   // Animation variants for the loading state
@@ -65,7 +65,7 @@ const LoadingOverlay = () => {
             ease: "easeInOut"
           }}
         >
-          <IconBrain size={36} className="text-white" />
+          <Brain size={36} className="text-white" />
         </motion.div>
         
         <motion.div 

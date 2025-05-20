@@ -1,49 +1,49 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+
 import { 
-  IconBrain, 
-  IconCode, 
-  IconMicrophone, 
-  IconDeviceDesktopAnalytics,
-  IconDeviceMobile,
-  IconCloudComputing,
-  IconBrandInertia
-} from '@tabler/icons-react';
+  Brain, 
+  Code, 
+  Mic, 
+  MonitorSmartphone,
+  Smartphone,
+  Cloud,
+} from 'lucide-react';
 
 const Features = () => {
   const features = [
     {
-      icon: <IconBrain className="h-10 w-10" />,
+      icon: <Brain className="h-10 w-10" />,
       title: 'AI-Powered Analysis',
       description: 'Advanced AI that understands code patterns and explains them in simple, concise language.',
       gradient: 'from-glow-purple to-glow-blue'
     },
     {
-      icon: <IconCode className="h-10 w-10" />,
+      icon: <Code className="h-10 w-10" />,
       title: 'Line by Line Explanation',
       description: 'Detailed breakdown of each line of code with context-aware explanations.',
       gradient: 'from-glow-blue to-glow-cyan'
     },
     {
-      icon: <IconMicrophone className="h-10 w-10" />,
+      icon: <Mic className="h-10 w-10" />,
       title: 'Natural Language',
       description: 'Clear explanations in plain English, avoiding unnecessary technical jargon.',
       gradient: 'from-glow-cyan to-glow-green'
     },
     {
-      icon: <IconDeviceDesktopAnalytics className="h-10 w-10" />,
+      icon: <MonitorSmartphone className="h-10 w-10" />,
       title: 'Interactive Interface',
       description: 'Click on any line to get deeper insights and more detailed explanations.',
       gradient: 'from-glow-green to-glow-purple'
     },
     {
-      icon: <IconDeviceMobile className="h-10 w-10" />,
+      icon: <Smartphone className="h-10 w-10" />,
       title: 'Mobile Responsive',
       description: 'Use on any device with a fully responsive design that works on desktop, tablet, and mobile.',
       gradient: 'from-glow-pink to-glow-purple'
     },
     {
-      icon: <IconCloudComputing className="h-10 w-10" />,
+      icon: <Cloud className="h-10 w-10" />,
       title: 'Cloud Processing',
       description: 'Powerful cloud-based analysis that works quickly even on complex codebases.',
       gradient: 'from-glow-blue to-glow-pink'

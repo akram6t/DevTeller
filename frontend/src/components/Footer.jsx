@@ -1,22 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { motion } from 'framer-motion';
-import { 
-  IconBrandGithub, 
-  IconBrandTwitter, 
-  IconBrandDiscord, 
-  IconCode, 
-  IconMail
-} from '@tabler/icons-react';
+
+import { Code, Github, Mail, Twitter } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   const socialLinks = [
-    { icon: <IconBrandGithub />, href: 'https://github.com', label: 'GitHub' },
-    { icon: <IconBrandTwitter />, href: 'https://twitter.com', label: 'Twitter' },
-    { icon: <IconBrandDiscord />, href: 'https://discord.com', label: 'Discord' },
-    { icon: <IconMail />, href: 'mailto:contact@codeexplainer.com', label: 'Email' }
+    { icon: <Github />, href: 'https://github.com', label: 'GitHub' },
+    { icon: <Twitter />, href: 'https://twitter.com', label: 'Twitter' },
+    { icon: <Code />, href: 'https://discord.com', label: 'Discord' },
+    { icon: <Mail />, href: 'mailto:contact@codeexplainer.com', label: 'Email' }
   ];
 
   const footerLinks = [
@@ -57,7 +52,7 @@ const Footer = () => {
                 className="flex items-center space-x-2 mb-4"
                 whileHover={{ scale: 1.05 }}
               >
-                <IconCode className="text-glow-purple w-8 h-8" stroke={2} />
+                <Code className="text-glow-purple w-8 h-8" stroke={2} />
                 <span className="text-xl font-bold bg-gradient-to-r from-glow-purple to-glow-blue text-transparent bg-clip-text">
                   CodeExplainer
                 </span>

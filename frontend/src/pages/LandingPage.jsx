@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import Features from '../components/Features';
 import HowItWorks from '../components/HowItWorks';
 import Footer from '../components/Footer';
-import GlowingBackground from '../components/GlowingBackground';
-import About from '../components/about.jsx';
+import Teams from '../components/Teams.jsx';
+
+const GlowingBackground = lazy(() => import('../components/GlowingBackground'));
 
 const LandingPage = () => {
   return (
@@ -21,7 +22,7 @@ const LandingPage = () => {
         <div id="how-it-works" className="py-20">
           <HowItWorks />
         </div>
-        <About />
+        <Teams />
       </main>
       <Footer />
     </div>
