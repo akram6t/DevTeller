@@ -1,5 +1,6 @@
 # hackathon-project
 
+```
 hackathon-project/
 ├── .gitignore
 ├── README.md
@@ -51,7 +52,7 @@ hackathon-project/
 │   │   │   ├── api.js
 │   ├── tailwind.config.js
 │   ├── vite.config.js
-
+```
 
 ## Create a This .env file in frontend and backend folder root.
 
