@@ -1,74 +1,73 @@
-# hackathon-project
+# 🚀 DevTeller - A Code Explainer
 
-```
-hackathon-project/
-├── .gitignore
-├── README.md
-├── backend/
-│   ├── .env
-│   ├── package.json
-│   ├── pnpm-lock.yaml
-│   ├── src/
-│   │   ├── app.js
-│   │   ├── utils/
-│   │   │   ├── ai-explain.js
-├── frontend/
-│   ├── .env
-│   ├── .gitignore
-│   ├── README.md
-│   ├── dist/
-│   │   ├── assets/
-│   │   │   ├── index-BFyINkg0.js
-│   │   │   ├── index-DsfXmcyB.css
-│   │   ├── index.html
-│   │   ├── vite.svg
-│   ├── eslint.config.js
-│   ├── index.html
-│   ├── package.json
-│   ├── pnpm-lock.yaml
-│   ├── postcss.config.js
-│   ├── public/
-│   │   ├── vite.svg
-│   ├── src/
-│   │   ├── App.jsx
-│   │   ├── assets/
-│   │   │   ├── react.svg
-│   │   ├── components/
-│   │   │   ├── CodeEditor.jsx
-│   │   │   ├── CodeExplanation.jsx
-│   │   │   ├── Features.jsx
-│   │   │   ├── Footer.jsx
-│   │   │   ├── GlowingBackground.jsx
-│   │   │   ├── Hero.jsx
-│   │   │   ├── HowItWorks.jsx
-│   │   │   ├── LoadingOverlay.jsx
-│   │   │   ├── Navbar.jsx
-│   │   ├── index.css
-│   │   ├── main.jsx
-│   │   ├── pages/
-│   │   │   ├── CodeExplain.jsx
-│   │   │   ├── LandingPage.jsx
-│   │   ├── utils/
-│   │   │   ├── api.js
-│   ├── tailwind.config.js
-│   ├── vite.config.js
+A web application built for Hackathons that uses **Gemini API** to explain code with a clean, user-friendly interface and detailed **line-by-line analysis**.
+
+
+---
+
+## ✨ Features
+
+- 🔍 Explain code using Gemini API  
+- 🧠 Line-by-line code analysis  
+- 💻 Responsive and elegant UI  
+- ⚡ Built with React + Express  
+
+---
+
+## 🛠️ Local Setup
+
+### 📁 `/frontend/.env`
+
+```env
+VITE_API_URL=http://localhost:5000
 ```
 
-## Create a This .env file in frontend and backend folder root.
+### 📁 `/backend/.env`
 
-
-## /frontend/.env
-```shell
-  VITE_API_URL=http://localhost:5000
-```
-## /backend/.env
-```
-  GEMINI_APIKEY=put_your_gemini_key
+```env
+GEMINI_APIKEY=put_your_gemini_key
+FRONTEND_URL=http://localhost:5173
 ```
 
+1. Clone the repository  
+2. Install dependencies in both frontend and backend folders  
+3. Create `.env` files as shown above  
+4. Start the backend and frontend servers  
 
-README.md:
+---
 
-# hackathon-project
+## 📸 Preview
+
+App Preview
+https://devteller.vercel.app"
 
 
+---
+
+## 👥 Contributors
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/akram6t">
+        <img src="https://avatars.githubusercontent.com/akram6t" width="80px;" alt="Akram Khan"/>
+        <br />
+        <sub><b>Akram Khan</b></sub>
+      </a>
+    </td>
+     <td align="center">
+      <a href="https://github.com/YashmeetSingh-portfolio">
+        <img src="https://devteller.vercel.app/assets/Yashmeet-kb06ojoB.jpg" width="80px;" alt="Akram Khan"/>
+        <br />
+        <sub><b>Yashmeet Singh</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
+---
+
+## Preview
+
+![Preview](https://s3.tebi.io/portfolio/devteller/devteller_one.png)
+![Preview](https://s3.tebi.io/portfolio/devteller/devteller_two.png)
