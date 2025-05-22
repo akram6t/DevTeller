@@ -2,7 +2,6 @@ import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_APIKEY });
 
-
 export async function explainByAi(code) {
 
     const response = await ai.models.generateContent({
@@ -29,11 +28,7 @@ export async function explainByAi(code) {
     // }
     // if(result.endsWith('```')){
     //     result.replace('```', '');
-    // }
-
-    console.log(result);
-    
-    
+    // }    
 
     return JSON.parse(result);
 }

@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Link, Linkedin, Mail } from 'lucide-react';
 
-import akramImage from '../assets/akram.png';
+import akramImage from '../assets/akram.jpg';
 import YashmeetImage from '../assets/Yashmeet.jpg';
 
 const Teams = () => {
@@ -22,6 +22,7 @@ const Teams = () => {
       role: 'Fullstack Developer',
       img: akramImage,
       social: [
+        { icon: <Link />, href: 'https://akram6t.vercel.app' },
         { icon: <Github />, href: 'https://github.com/akram6t' },
         { icon: <Linkedin />, href: 'https://linkedin.com/in/akram6t' },
         { icon: <Mail />, href: 'mailto:khanakram8435@gmail.com' }

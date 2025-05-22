@@ -1,8 +1,7 @@
 import 'dotenv/config';
-import express  from 'express';
+import express from 'express';
 import cors from 'cors';
 import http from 'http';
-import bodyParser from 'body-parser';
 import { explainByAi } from './utils/ai-explain.js';
 
 const app = express();
@@ -21,22 +20,33 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.post('/api/code-explain', async (req, res) => {
-    try{        
+    try {
         const { code } = req.body;
-        if(!code){
+        if (!code) {
             throw new Error("please provide Code");
         }
 
-        const data = await explainByAi(code);        
+        const data = await explainByAi(code);
 
         return res.json({ data });
 
-    }catch(error){
+    } catch (error) {
         return res.json({ error: "Unable to explain the code!", message: error.message.toString() }, 400);
     }
 });
 
-
 server.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
+
+
+// This is a self-ping mechanism to keep the server alive
+import https from 'https';
+const SELF_URL = process.env.SELF_URL;
+
+setInterval(() => {
+    https.get(SELF_URL, (res) => {
+        console.log("Self-ping successful");
+    });
+}, 1000 * 60 * 4); // Every 4 minutes   
