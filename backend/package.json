@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node src/app.js",
-    "dev": "npx nodemon src/app.js"
+    "dev": "npx nodemon src/app.js",
+    "test": "echo exit 1"
   },
   "keywords": [],
   "author": "",
