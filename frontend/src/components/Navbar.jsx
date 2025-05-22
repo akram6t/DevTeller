@@ -71,7 +71,7 @@ const Navbar = () => {
         >
           <Code className="text-glow-purple w-8 h-8" stroke={2} />
           <span className="text-xl font-bold bg-gradient-to-r from-glow-purple to-glow-blue text-transparent bg-clip-text">
-            CodeExplainer
+            DevTeller
           </span>
         </Link>
 
