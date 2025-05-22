@@ -9,12 +9,12 @@ const Teams = () => {
   const teamMembers = [
     {
       name: 'Yashmeet Singh',
-      role: 'Frontend Developer',
+      role: 'Fullstack Web-Developer',
       img: YashmeetImage,
       social: [
-        { icon: <Github />, href: 'https://github.com/yashmeet' },
-        { icon: <Linkedin />, href: 'https://linkedin.com/in/yashmeet' },
-        { icon: <Mail />, href: 'mailto:yashmeet@example.com' }
+        { icon: <Github />, href: 'https://github.com/YashmeetSingh-portfolio' },
+        { icon: <Linkedin />, href: 'https://www.linkedin.com/in/yashmeet-dhaliwal-307a452a8/' },
+        { icon: <Mail />, href: 'mailto:opyash471@gmail.com' }
       ]
     },
     {
