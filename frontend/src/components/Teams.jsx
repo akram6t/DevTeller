@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Github, Link, Linkedin, Mail } from 'lucide-react';
 
 import akramImage from '../assets/akram.jpg';
-import YashmeetImage from '../assets/Yashmeet.jpg';
+import YashmeetImage from '../assets/yashmeet.jpg';
 
 const Teams = () => {
   const teamMembers = [
