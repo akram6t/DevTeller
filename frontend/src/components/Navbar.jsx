@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Code, Menu, X, ArrowRight } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,7 +32,7 @@ const Navbar = () => {
   const scrollTo = (id) => {
     const element = document.getElementById(id);
     if (element) {
-      const navbarHeight = 80; 
+      const navbarHeight = 80;
       const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
       const offsetPosition = elementPosition - navbarHeight;
 
@@ -59,13 +59,12 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${
-      scrolled ? 'bg-gray-900 bg-opacity-90 shadow-lg backdrop-blur-md py-2' : 'bg-transparent py-4'
-    }`}>
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-gray-900 bg-opacity-90 shadow-lg backdrop-blur-md py-2' : 'bg-transparent py-4'
+      }`}>
       <div className="container mx-auto px-4 flex justify-between items-center">
         {/* Brand Logo */}
-        <Link 
-          to="/" 
+        <Link
+          to="/"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           className="flex items-center space-x-2 z-50"
         >
@@ -86,7 +85,7 @@ const Navbar = () => {
               {link.name}
             </button>
           ))}
-          
+
           <Link to="/code-explain">
             <motion.button
               className="px-5 py-2 rounded-full bg-gradient-to-r from-glow-purple to-glow-blue hover:from-glow-blue hover:to-glow-purple text-white font-medium flex items-center"
@@ -109,7 +108,7 @@ const Navbar = () => {
               Try Now
             </motion.button>
           </Link>
-          
+
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="text-gray-300 hover:text-white focus:outline-none z-50"
@@ -124,38 +123,42 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu */}
-        {isOpen && (
-          <motion.div 
-            ref={menuRef}
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 top-16 bg-gray-900 bg-opacity-95 backdrop-blur-lg md:hidden z-40 pt-8 px-6"
-          >
-            <div className="flex flex-col space-y-6">
-              {navLinks.map((link, index) => (
-                <button
-                  key={index}
-                  onClick={link.path ? () => { link.onClick(); if (link.path) setIsOpen(false); } : link.onClick}
-                  className="text-2xl text-gray-300 hover:text-white py-3 border-b border-gray-800 text-left"
-                >
-                  {link.name}
-                </button>
-              ))}
-              
-              <Link to="/code-explain" onClick={() => setIsOpen(false)}>
-                <motion.button
-                  className="w-full mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-glow-purple to-glow-blue text-white font-medium flex items-center justify-center"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  Try Now <ArrowRight className="ml-2 h-5 w-5" />
-                </motion.button>
-              </Link>
-            </div>
-          </motion.div>
-        )}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              ref={menuRef}
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+              className="fixed inset-0 top-0 pt-20 bg-gray-900/95 backdrop-blur-xl md:hidden z-40 px-6"
+            >
+              <div className="flex flex-col space-y-4 bg-gray-900/95 p-6 rounded-lg shadow-2xl backdrop-blur-xl border border-gray-800">
+                {navLinks.map((link, index) => (
+                  <motion.button
+                    key={index}
+                    onClick={link.path ? () => { link.onClick(); if (link.path) setIsOpen(false); } : link.onClick}
+                    className="text-xl text-gray-300 hover:text-white py-3 px-4 rounded-lg hover:bg-gray-800/80 transition-colors text-left backdrop-blur-md"
+                    whileHover={{ x: 5 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    {link.name}
+                  </motion.button>
+                ))}
+
+                <Link to="/code-explain" onClick={() => setIsOpen(false)} className="mt-4">
+                  <motion.button
+                    className="w-full px-6 py-3 rounded-full bg-gradient-to-r from-glow-purple to-glow-blue text-white font-medium flex items-center justify-center backdrop-blur-md"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    Try Now <ArrowRight className="ml-2 h-5 w-5" />
+                  </motion.button>
+                </Link>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </nav>
   );
